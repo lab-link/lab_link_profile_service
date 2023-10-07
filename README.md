@@ -24,6 +24,6 @@ Flask microservice that handles profile data requests
 ### Start Flask Server in Debug Mode
 ```flask run --debug```
 
-### Uncomment this line in app.py to seed database with Create Request
+### Uncomment this line in app.py to seed profiles table in database
 ```with app.app_context():```
     ```db.create_all()```
