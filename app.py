@@ -1,10 +1,18 @@
-from flask import Flask, jsonify
+import sys
+sys.path.append('./')
+from flask import Flask
+from api import save_profile_wrapper
+from flask_sqlalchemy import SQLAlchemy
+from . import USERNAME, PASSWORD, HOST, DATABASE
 
 app = Flask(__name__)
 
-@app.route('/greet', methods=['GET'])
-def greet_user():
-    return jsonify(message="Hello, User!")
+app.config["SQLALCHEMY_DATABASE_URI"] =f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOST}/{DATABASE}"
+db = SQLAlchemy(app)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+save_profile_blueprint = save_profile_wrapper(db)
+app.register_blueprint(save_profile_blueprint)
+
+
+# with app.app_context():
+#     db.create_all()
