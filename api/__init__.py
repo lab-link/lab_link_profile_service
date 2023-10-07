@@ -1,3 +1,1 @@
-from .get_profile import get_profile_wrapper
-from .save_profile import save_profile_wrapper
-from .update_profile import update_profile_wrapper
+from .profile_routes import profile_routes_wrapper
