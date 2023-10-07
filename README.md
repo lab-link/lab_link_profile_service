@@ -10,7 +10,7 @@ Flask microservice that handles profile data requests
 ```DATABASE=lablink```
 
 ### Create virtual environment
-```python -m venv .venv```
+```python3 -m venv .venv```
 
 ### Activate virtual environment
 ```source .venv/bin/activate```
@@ -19,7 +19,7 @@ Flask microservice that handles profile data requests
 ```pip install --upgrade pip```
 
 ### Install Project Packages
-```pip -r requirements.txt```
+```pip install -r requirements.txt```
 
 ### Start Flask Server in Debug Mode
 ```flask run --debug```
