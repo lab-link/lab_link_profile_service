@@ -9,4 +9,4 @@ class Projects(db.Model):
     organizer_data = db.Column(db.String(500))
     date_posted = db.Column(db.String(50))
 
-    roles = db.relationship('ProjectPositions', backref='project', lazy=True)
+    positions = db.relationship('ProjectPositions', backref='Projects', lazy=True)

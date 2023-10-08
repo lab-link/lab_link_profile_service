@@ -1,6 +1,7 @@
 import sys
 sys.path.append('./')
 from flask import Flask
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from api import profile_routes_wrapper
 from api import profile_portfolio_routes_wrapper
@@ -11,6 +12,7 @@ from api import project_position_routes_wrapper
 from . import USERNAME, PASSWORD, HOST, DATABASE
 
 app = Flask(__name__)
+CORS(app)
 
 app.config["SQLALCHEMY_DATABASE_URI"] =f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOST}/{DATABASE}"
 db = SQLAlchemy(app)

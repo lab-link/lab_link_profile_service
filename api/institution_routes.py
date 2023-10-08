@@ -44,6 +44,49 @@ def institutions_routes_wrapper(db):
             }), 200
         else:
             return jsonify(message="Institution not found"), 404
+    
+    @institutions_blueprint.route("/get-institution-by-profile/<int:profile_id>", methods=['GET'])
+    def get_institution_by_profile_id(profile_id):
+        """
+        This API retrieves an institution entry by a profile ID.
+        """
+        institution = Institutions.query.filter_by(profile_id=profile_id).first()
+        if institution:
+            return jsonify({
+                'institution_id': institution.institution_id,
+                'image_url': institution.image_url,
+                'institution_name': institution.institution_name,
+                'date_started': institution.date_started,
+                'date_ended': institution.date_ended,
+                'institution_type': institution.institution_type,
+                'is_currently_attending': institution.is_currently_attending,
+                'institution_accomplishments': institution.institution_accomplishments
+            }), 200
+        else:
+            return jsonify(message="Institution not found"), 404
+        
+    @institutions_blueprint.route("/get-all-institutions-by-profile/<int:profile_id>", methods=['GET'])
+    def get_all_institutions_by_profile_id(profile_id):
+        """
+        This API retrieves all institution entries with a specific profile ID.
+        """
+        institutions = Institutions.query.filter_by(profile_id=profile_id).all()
+        
+        if institutions:
+            return jsonify([
+                {
+                    'institution_id': institution.institution_id,
+                    'image_url': institution.image_url,
+                    'institution_name': institution.institution_name,
+                    'date_started': institution.date_started,
+                    'date_ended': institution.date_ended,
+                    'institution_type': institution.institution_type,
+                    'is_currently_attending': institution.is_currently_attending,
+                    'institution_accomplishments': institution.institution_accomplishments
+                } for institution in institutions
+            ]), 200
+        else:
+            return jsonify(message="No institutions found for the given profile ID"), 404
 
     @institutions_blueprint.route("/update-institution/<int:institution_id>", methods=['PUT'])
     def update_institution(institution_id):
