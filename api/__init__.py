@@ -3,3 +3,4 @@ from .profile_portfolio_routes import profile_portfolio_routes_wrapper
 from .institution_routes import institutions_routes_wrapper
 from .project_position_routes import project_position_routes_wrapper
 from .project_routes import project_routes_wrapper
+from .organization_routes import organization_routes_wrapper

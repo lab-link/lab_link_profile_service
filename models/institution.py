@@ -11,6 +11,7 @@ class Institutions(db.Model):
     institution_name = db.Column(db.String(50))
     date_started = db.Column(db.Date)
     date_ended = db.Column(db.Date, nullable=True) 
-    institution_type = db.Column(db.String(50))  
+    institution_type = db.Column(db.String(50)) 
+    institution_position = db.Column(db.String(50))
     is_currently_attending = db.Column(db.Boolean, default=False)
     institution_accomplishments = db.Column(db.String(1000), nullable=True) 

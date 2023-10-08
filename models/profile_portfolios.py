@@ -10,3 +10,4 @@ class ProfilePortfolios(db.Model):
     employer_name = db.Column(db.String(50)) 
     experience_data = db.Column(db.String(1000))
     
+  
