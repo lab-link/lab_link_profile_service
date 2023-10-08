@@ -18,6 +18,7 @@ def institutions_routes_wrapper(db):
             date_started=content.get("date_started"),
             date_ended=content.get("date_ended"),
             institution_type=content.get("institution_type"),
+            institution_position=content.get("institution_position"),
             is_currently_attending=content.get("is_currently_attending"),
             institution_accomplishments=content.get("institution_accomplishments")
         )
@@ -39,6 +40,7 @@ def institutions_routes_wrapper(db):
                 'date_started': institution.date_started,
                 'date_ended': institution.date_ended,
                 'institution_type': institution.institution_type,
+                'institution_position': institution.institution_position,
                 'is_currently_attending': institution.is_currently_attending,
                 'institution_accomplishments': institution.institution_accomplishments
             }), 200
@@ -59,6 +61,7 @@ def institutions_routes_wrapper(db):
                 'date_started': institution.date_started,
                 'date_ended': institution.date_ended,
                 'institution_type': institution.institution_type,
+                'institution_position': institution.institution_position,
                 'is_currently_attending': institution.is_currently_attending,
                 'institution_accomplishments': institution.institution_accomplishments
             }), 200
@@ -81,6 +84,7 @@ def institutions_routes_wrapper(db):
                     'date_started': institution.date_started,
                     'date_ended': institution.date_ended,
                     'institution_type': institution.institution_type,
+                    'institution_position': institution.institution_position,
                     'is_currently_attending': institution.is_currently_attending,
                     'institution_accomplishments': institution.institution_accomplishments
                 } for institution in institutions
@@ -104,6 +108,7 @@ def institutions_routes_wrapper(db):
         institution.date_started = content.get("date_started", institution.date_started)
         institution.date_ended = content.get("date_ended", institution.date_ended)
         institution.institution_type = content.get("institution_type", institution.institution_type)
+        institution.institution_position = content.get("institution_position", institution.institution_position)
         institution.is_currently_attending = content.get("is_currently_attending", institution.is_currently_attending)
         institution.institution_accomplishments = content.get("institution_accomplishments", institution.institution_accomplishments)
 

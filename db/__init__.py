@@ -1,0 +1,1 @@
+from .seed_db import seed_org_data
