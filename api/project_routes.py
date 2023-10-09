@@ -59,6 +59,35 @@ def project_routes_wrapper(db):
         else:
             return jsonify(message="Project not found"), 404
         
+    @project_blueprint.route("/get-all-projects", methods=['GET'])
+    def get_all_projects():
+        projects = Projects.query.all()
+        project_list = []
+
+        for project in projects:
+            project_data = {
+                'project_id': project.project_id,
+                'project_name': project.project_name,
+                'project_url_on_catalog': project.project_url_on_catalog,
+                'project_url_external': project.project_url_external,
+                'project_description': project.project_description,
+                'project_keywords': project.project_keywords,
+                'project_owners': project.project_owners,
+                'project_collaborators': project.project_collaborators,
+                'project_fields_of_science': project.project_fields_of_science,
+                'project_is_active': project.project_is_active,
+                'project_geographical_scope': project.project_geographical_scope,
+                'project_targeted_groups': project.project_targeted_groups,
+                'projects_tasks': project.projects_tasks,
+                'project_started_date': project.project_started_date,
+                'project_email': project.project_email,
+                'date_posted': project.date_posted,
+                'organization_id': project.organization_id
+            }
+            project_list.append(project_data)
+
+        return jsonify(projects=project_list), 200
+        
     @project_blueprint.route("/update-project/<int:project_id>", methods=['PUT'])
     def update_project(project_id):
         project = Projects.query.get(project_id)

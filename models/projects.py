@@ -24,7 +24,7 @@ class Projects(db.Model):
     organization_id = db.Column(db.Integer, ForeignKey('Organizations.organization_id'))
     
     positions = db.relationship('ProjectPositions', backref='projects', lazy=True)
-
+    
 
 
     
