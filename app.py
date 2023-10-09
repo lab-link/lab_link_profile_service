@@ -36,14 +36,14 @@ app.register_blueprint(project_position_blueprint)
 app.register_blueprint(project_blueprint)
 app.register_blueprint(organization_blueprint)
 
-with app.app_context():
-    db.drop_all()
-    db.create_all()  
+# with app.app_context():
+#     db.drop_all()
+#     db.create_all()  
 
 
-@app.cli.command("seed-db")
-def seed_db():
-    seed_profile_data(db, '../profile_data.json')
-    seed_org_data(db, '../org_data.json')
-    seed_project_data(db, '../project_data.json')
-    print("Database seeded!")
+# @app.cli.command("seed-db")
+# def seed_db():
+#     seed_profile_data(db, '../profile_data.json')
+#     seed_org_data(db, '../org_data.json')
+#     seed_project_data(db, '../project_data.json')
+#     print("Database seeded!")
