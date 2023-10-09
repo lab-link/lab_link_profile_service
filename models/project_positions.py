@@ -6,7 +6,6 @@ class ProjectPositions(db.Model):
 
     position_id = db.Column(db.Integer, primary_key=True)
     project_id = db.Column(db.Integer, ForeignKey('Projects.project_id'))
-    organization_id = db.Column(db.Integer, ForeignKey('Organizations.organization_id'))
     position_description = db.Column(db.String(500)) 
     preferred_experience = db.Column(db.String(500)) 
     date_posted = db.Column(db.String(50))

@@ -12,4 +12,5 @@ class Profiles(db.Model):
     years_of_experience = db.Column(db.Integer)
     skills = db.Column(db.String(255)) 
 
-    portfolios = db.relationship('ProfilePortfolios', backref='Profiles', lazy=True)
+    portfolios = db.relationship('ProfilePortfolios', backref='profiles', lazy=True)
+    positions = db.relationship('Organizations', backref='profiles', lazy=True)

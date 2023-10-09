@@ -19,7 +19,8 @@ def organization_routes_wrapper(db):
                     'image_url': organization.image_url,
                     'organization_name': organization.organization_name,
                     'organization_description': organization.organization_description,
-                    'organization_milestones': organization.organization_milestones
+                    'organization_milestones': organization.organization_milestones,
+                    'profile_id': organization.profile_id
                 } for organization in organizations
             ]), 200
         else:
