@@ -1,6 +1,7 @@
 # lab-link-profile-service
-Flask microservice that handles profile data requests
+Flask microservice that handles backend requests for lab link. 
 
+Utilizes SQL Alchemy to persist data through an ORM.
 ## Get Started
 
 ### Create .env file for following environment variables
